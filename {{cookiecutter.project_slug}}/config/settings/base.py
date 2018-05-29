@@ -73,6 +73,9 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    {% if cookiecutter.dynamic_rest == 'y' %}
+    'dynamic_rest',
+    {% endif %}
 ]
 LOCAL_APPS = [
     '{{ cookiecutter.project_slug }}.users.apps.UsersAppConfig',
@@ -298,10 +301,21 @@ REST_FRAMEWORK = {
   'rest_framework.parsers.MultiPartParser'
   ),
   'DEFAULT_RENDERER_CLASSES': (
-  'rest_framework_json_api.renderers.JSONRenderer',
-  'rest_framework.renderers.BrowsableAPIRenderer',
+    'rest_framework_json_api.renderers.JSONRenderer',
+    'rest_framework.renderers.BrowsableAPIRenderer',
   ),
   'DEFAULT_METADATA_CLASS': 'rest_framework_json_api.metadata.JSONAPIMetadata',
+}
+{% endif %}
+
+# dynamic-rest
+# ----------------------------------------------------------------------------
+# https://github.com/AltSchool/dynamic-rest#installation
+REST_FRAMEWORK = {
+  'DEFAULT_RENDERER_CLASSES': [
+    'rest_framework.renderers.JSONRenderer',
+    'dynamic_rest.renderers.DynamicBrowsableAPIRenderer',
+  ],
 }
 {% endif %}
 
