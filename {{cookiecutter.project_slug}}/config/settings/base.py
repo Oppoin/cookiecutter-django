@@ -287,6 +287,7 @@ STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 
 {%- endif %}
 
+{% if cookiecutter.rest_framework_json_api == 'y' -%}
 # django-rest-framework-json-api
 # ----------------------------------------------------------------------------
 # https://github.com/django-json-api/django-rest-framework-json-api#settings
@@ -306,8 +307,9 @@ REST_FRAMEWORK = {
   ),
   'DEFAULT_METADATA_CLASS': 'rest_framework_json_api.metadata.JSONAPIMetadata',
 }
-{% endif %}
+{%- endif %}
 
+{% if cookiecutter.dynamic_rest == 'y' -%}
 # dynamic-rest
 # ----------------------------------------------------------------------------
 # https://github.com/AltSchool/dynamic-rest#installation
@@ -317,7 +319,7 @@ REST_FRAMEWORK = {
     'dynamic_rest.renderers.DynamicBrowsableAPIRenderer',
   ],
 }
-{% endif %}
+{%- endif %}
 
 # Your stuff...
 # ------------------------------------------------------------------------------
