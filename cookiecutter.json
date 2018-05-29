@@ -42,5 +42,6 @@
   "use_travisci": "y",
   "keep_local_envs_in_vcs": "y",
 
+  "rest_framework_json_api": "n",
   "debug": "n"
 }

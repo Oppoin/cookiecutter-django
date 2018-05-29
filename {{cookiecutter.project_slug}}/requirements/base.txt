@@ -31,3 +31,7 @@ django-redis==4.10.0  # https://github.com/niwinz/django-redis
 # Django REST Framework
 djangorestframework==3.7.7 # pyup: < 3.8  # https://github.com/encode/django-rest-framework
 coreapi==2.3.3  # https://github.com/core-api/python-client
+
+{%- if cookiecutter.rest_framework_json_api == "y" %}
+djangorestframework-jsonapi==2.4.0 # https://github.com/django-json-api/django-rest-framework-json-api
+{%- endif %}
