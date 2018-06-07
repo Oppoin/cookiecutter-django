@@ -1,11 +1,26 @@
-sudo: true
+# This setup took me a few hours to come up with; codecov docs turned out to be useless in the end.
+# With this gist I hope to be the last one to have ever faced it again :)
+
+sudo: required
+
+services:
+  - docker
+
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq build-essential gettext python-dev zlib1g-dev libpq-dev xvfb
-  - sudo apt-get install -qq libtiff4-dev libjpeg8-dev libfreetype6-dev liblcms1-dev libwebp-dev
-  - sudo apt-get install -qq graphviz-dev python-setuptools python3-dev python-virtualenv python-pip
-  - sudo apt-get install -qq firefox automake libtool libreadline6 libreadline6-dev libreadline-dev
-  - sudo apt-get install -qq libsqlite3-dev libxml2 libxml2-dev libssl-dev libbz2-dev wget curl llvm
-language: python
-python:
-  - "3.6"
+  - docker version
+  - docker-compose version
+
+before_script:
+  # Among other python requirements my app also installs:
+  # * pytest
+  # * pytest-cov
+  # * coverage
+  - docker-compose -f local.yml build
+
+script:
+  # My setup premises:
+  # * TravisCI `CODECOV_TOKEN` env is set to the value from codecov.io project dashboard (which Codecov doesn't require for publicly-hosted projects) through TravisCI project dashboard settings
+  # * `django` is the app service name
+  # * Alpine Linux flavor of Python 3.6 is the app service base image
+  # * The app's working directory, including .git/, is mapped within the service as "./app/:/app/" via the local.yml Docker Compose config
+  - docker-compose -f local.yml run --rm $(bash <(curl -s https://codecov.io/env)) django ash -c 'pytest --cov=./ && apk update && apk add git && codecov'

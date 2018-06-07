@@ -1,3 +1,6 @@
+# This is just a sample codecov config -- feel free to modify however you like so that it fits the unique setup of yours.
+# N.B. Apparently, this file must be named `codecov.yml`, without the leading dot...
+
 codecov:
   notify:
     require_ci_to_pass: yes
