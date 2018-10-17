@@ -7,6 +7,8 @@ from {{ cookiecutter.project_slug }}.users.views import (
     user_detail_view,
 )
 
+from . import views
+
 app_name = "users"
 urlpatterns = [
     url(regex=r"^$", view=user_list_view.as_view(), name="list"),
