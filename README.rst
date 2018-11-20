@@ -7,6 +7,7 @@ The criteria which I have chosen for modifying the original and their rationale 
 
 1. LTS Django only
 2. 3rd party libraries must be actively maintained and used in at least 1 production project by the Oppoin team will be included
+3. Tested only with latest minor version of Python compatible with LTS-Django 
 
 
 .. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
