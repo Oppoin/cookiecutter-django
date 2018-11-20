@@ -1,5 +1,13 @@
-Cookiecutter Django
-=======================
+Cookiecutter Django Fork for Business Apps
+==========================================
+
+This is a fork of the [pydanny/cookiecutter-django](https://github.com/pydanny/cookiecutter-django) project.
+
+The criteria which I have chosen for modifying the original and their rationale are as follows:
+
+1. LTS Django only
+2. 3rd party libraries must be actively maintained and used in at least 1 production project by the Oppoin team will be included
+
 
 .. image:: https://travis-ci.org/pydanny/cookiecutter-django.svg?branch=master
     :target: https://travis-ci.org/pydanny/cookiecutter-django?branch=master
@@ -36,7 +44,7 @@ production-ready Django projects quickly.
 Features
 ---------
 
-* For Django 2.0
+* For Django 1.11
 * Works with Python 3.6
 * Renders Django projects with 100% starting test coverage
 * Twitter Bootstrap_ v4.1.1 (`maintained Foundation fork`_ also available)
