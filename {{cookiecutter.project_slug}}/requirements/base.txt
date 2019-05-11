@@ -38,5 +38,5 @@ djangorestframework-jsonapi==2.7.0  # https://github.com/django-json-api/django-
 {%- endif %}
 
 {%- if cookiecutter.dynamic_rest == "y" %}
-dynamic-rest==1.8.1 # https://github.com/AltSchool/dynamic-rest
+dynamic-rest==1.9.3 # https://github.com/AltSchool/dynamic-rest
 {%- endif %}
