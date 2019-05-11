@@ -9,7 +9,9 @@ RUN apk update \
   # Pillow dependencies
   && apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev \
   # CFFI dependencies
-  && apk add libffi-dev py-cffi
+  && apk add libffi-dev py-cffi{%- if cookiecutter.dynamic_rest == "y" %} \
+  # git
+  && apk add --no-cache git{%- endif %}
 
 RUN addgroup -S django \
     && adduser -S -G django django
