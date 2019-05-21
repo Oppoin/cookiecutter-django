@@ -36,7 +36,7 @@ Make sure your project is fully commited and pushed up to Bitbucket or Github or
     git clone <my-repo-url>  # you can also use hg
     cd my-project-name
     mkvirtualenv --python=/usr/bin/python3.6 my-project-name
-    pip install -r requirements/production.txt  # may take a few minutes
+    pip install -r requirements/project.production.txt  # may take a few minutes
 
 
 
@@ -100,7 +100,7 @@ Now go back to the *postactivate* script and set the ``DATABASE_URL`` environmen
     # or
     export DATABASE_URL='sqlite:////home/yourusername/path/to/db.sqlite'
 
-If you're using MySQL, you may need to run ``pip install mysqlclient``, and maybe add ``mysqlclient`` to *requirements/production.txt* too.
+If you're using MySQL, you may need to run ``pip install mysqlclient``, and maybe add ``mysqlclient`` to *requirements/project.production.txt* too.
 
 Now run the migration, and collectstatic:
 
