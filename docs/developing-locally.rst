@@ -25,7 +25,7 @@ First things first.
 
 #. Install development requirements: ::
 
-    $ pip install -r requirements/local.txt
+    $ pip install -r requirements/project.local.txt
 
 #. Create a new PostgreSQL database using createdb_: ::
 

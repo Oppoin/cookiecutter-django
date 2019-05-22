@@ -20,7 +20,7 @@ Prerequisites
 Attention, Windows Users
 ------------------------
 
-Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/base.txt``::
+Currently PostgreSQL (``psycopg2`` python package) is not installed inside Docker containers for Windows users, while it is required by the generated Django project. To fix this, add ``psycopg2`` to the list of requirements inside ``requirements/project.base.txt``::
 
     # Python-PostgreSQL Database Adapter
     psycopg2==2.6.2
